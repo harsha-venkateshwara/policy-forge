@@ -2,6 +2,12 @@
 
 **Governed GenAI policy to rule compilation for healthcare payment integrity.**
 
+**[Live demo](https://policy-forge-app.vercel.app/)** · frontend on Vercel, backend on Render, compiled live with Groq.
+
+> Note on the live demo: the backend runs on a free tier that sleeps after about 15 minutes
+> of inactivity, so the first action after an idle period can take 30 to 60 seconds while it
+> wakes up. Everything is instant once it is warm.
+
 PolicyForge reads a written payment or coding policy, compiles it into a transparent
 executable claim edit rule, and runs claims against that rule. Every claim is paid,
 flagged, or denied with a plain English reason and a citation back to the exact policy
