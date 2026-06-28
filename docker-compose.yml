@@ -1,0 +1,20 @@
+services:
+  backend:
+    build: ./backend
+    # Runs with zero config: with no key it uses the heuristic compiler. Export
+    # GROQ_API_KEY in your shell (or a .env beside this file) to compile with Groq.
+    environment:
+      GROQ_API_KEY: "${GROQ_API_KEY:-}"
+      GROQ_MODEL: "${GROQ_MODEL:-llama-3.3-70b-versatile}"
+      CORS_ORIGINS: "http://localhost:5173,http://127.0.0.1:5173"
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_TARGET: "http://backend:8000"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
